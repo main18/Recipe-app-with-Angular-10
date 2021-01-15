@@ -11,13 +11,18 @@ import { ShoppingListService } from './shopping-list.service';
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredients[];
   constructor(private shoopingListService: ShoppingListService) {
-    
+
   }
 
   ngOnInit(): void {
     this.ingredients = this.shoopingListService.getIngredients();
     this.shoopingListService.onAddIngredient
-      .subscribe((ingredients : Ingredients[]) => this.ingredients = ingredients);
+      .subscribe((ingredients: Ingredients[]) => this.ingredients = ingredients);
+
+  }
+
+  onclick() {
+    console.log(this.ingredients);
   }
 
 }
